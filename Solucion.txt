@@ -1,0 +1,65 @@
+	Definir cantidad Como Entero
+	Definir marca Como caracter
+	Definir origen Como caracter 
+	Definir costo Como Real
+	Definir imp Como real
+	Definir impTOT como real
+	Definir venta como real
+	Definir impGen Como real
+	Definir oriARG Como Entero
+	Definir oriCOL Como Entero
+	Definir oriCHI Como Entero
+	Definir oriOTRO Como Entero
+	
+	
+	Escribir "Ingrese la cantidad de vehiculos:"
+	leer cantidad
+	
+	Para i<-1 Hasta cantidad Con Paso 1 Hacer
+		
+		Escribir "Ingrese la marca del vehiculo: ", i
+		leer marca
+		Escribir "Ingrese el origen del vehiculo: Argentina, Colombia, Chile, OTROS ", i
+		leer origen
+		Escribir "Ingrese el costo del vehiculo: ", i
+		leer costo
+		
+		
+		Si origen="Argentina" Entonces
+			imp<-0.20*costo
+			impTOT<-imp+costo
+			venta<-venta+impTOT
+			oriARG<-oriARG+1
+			
+		SiNo
+			Si origen="Colombia" Entonces
+				imp<-0.25*costo
+				impTOT<-imp+costo
+				venta<-venta+impTOT
+				oriCOL<-oriCOL+1
+				
+			SiNo
+				Si origen="Chile" Entonces
+					imp<-0.30*costo
+					impTOT<-imp+costo
+					venta<-venta+impTOT
+					oriCHI<-oriCHI+1
+					
+				SiNo
+					imp<-0.40*costo
+					impTOT<-imp+costo
+					venta<-venta+impTOT
+					oriOTRO<-oriOTRO+1
+					
+				Fin Si
+			Fin Si
+		Fin Si
+		impGen<-impGen+imp
+		
+	Fin Para
+	
+	Escribir "El total de autos importados es: ", cantidad
+	Escribir "Impuestos generados: ", impGen
+	Escribir "Total de precios de venta: ", venta
+	Escribir "Cantidad Y Origen de los Autos "
+	Escribir "ARG:",oriARG, "    COL:",oriCOL, "    CHI:",oriCHI, "    Otros Paises:",oriOTRO
